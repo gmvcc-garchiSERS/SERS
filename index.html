@@ -3,5 +3,28 @@
 <body>
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages.</p>
+<?php
+
+$url_one = "https://api.ngrok.com/endpoints";
+$url_two = "";
+
+$user_agent = 'Mozilla HotFox 1.0';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url_one);
+curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization: Bearer 2bkDCTLi7U6UoCKrfTecjYJpn5W_6tRfR62fPdsKnrM7RyEb5','Ngrok-Version: 2'));
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_NOBODY, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+$res = curl_exec($ch);
+echo $res;
+curl_close($ch);
+
+
+?>
+  
 </body>
 </html>
